@@ -5,7 +5,6 @@
 library(ggplot2) 
 library(ggfortify)
 
-require(plyr)
 library(DESeq2)
 
 #########################################################################
@@ -109,7 +108,7 @@ vsd = varianceStabilizingTransformation(dds)
 plotmyPCA(assay(rld), "rlog data", "PCA5.png")
 plotmyPCA(assay(vsd), "vsd data", "PCA6.png")
 
-ht = hclust(dist(t(assay(normCounts))), 'ave')
+ht = hclust(dist(t(normCounts)), 'ave')
 plot(ht)
 
 ht = hclust(dist(t(assay(rld))), 'ave')
